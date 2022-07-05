@@ -1,0 +1,16 @@
+{% extends 'socialmap/base.html' %}
+
+{% block content %}
+<center>
+<h1> Events for {{year}} {{month}} ! </h1>
+<br/>
+As of {{ time }}
+<br/>
+<br/>
+{{ cal|safe }}
+<br/>
+<br/>
+<br/>
+Copyright (c) {{year}}
+</center>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'events/base.html' %}
+
+{% block content %}
+<center>
+<h1> Add Event To Database </h1>
+<br/><br/>
+{% if submitted %}
+    <div class="alert alert-success" role="alert">
+        <h4 class="alert-heading">Your Event Was Submitted Successfully!</h4>
+        <p> You see this message because you successfully submitted the event information.</p>
+        <hr>
+        <p class="mb-0">Please note this page is temporary...</p>
+    </div>
+    
+{% else %}
+    <form action="" method=POST>
+        {% csrf_token %}
+        <!-- render as paragraph -->
+        {{form.as_p}} 
+        <input type="submit" value="Submit" class="btn btn-secondary">
+    </form>
+{% endif %}
+
+
+</center>
+{% endblock %}

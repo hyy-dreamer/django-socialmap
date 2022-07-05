@@ -1,0 +1,41 @@
+{% extends 'socialmap/base.html' %}
+
+{% block content %}
+<center><h1> Events </h1></center>
+<ul>
+<br/>
+{% for event in event_list %}
+
+<div class="card">
+    <div class="card-header">
+        {{event}}
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Event information:</h5>
+      <p class="card-text">Venue: {{event.venue.address}}
+        <ul>
+            <li>Date: {{event.event_date}}</li>
+            <li>Venue: {{event.venue}}</li>
+            <li>Manager: {{event.manager}}</li>
+            <li>Description: {{event.description}}</li>
+            <li>Attendees: 
+            {% for attendee in event.attendees.all %}
+                {{attendee}};
+            {% endfor %}
+            </li>
+        </ul>
+      </p>
+    </div>
+    <div class="card-footer text-muted">
+        <a href="{% url 'update-event' event.id %}" type="button" class="btn btn-outline-secondary btn-sm">Update</a>
+        <a href="{% url 'delete-event' event.id %}" type="button" class="btn btn-outline-danger btn-sm">Delete</a>
+      </div>
+</div>
+
+  <br/><br/>
+{% endfor %}
+</ul>
+{% endblock %}
+
+
+
